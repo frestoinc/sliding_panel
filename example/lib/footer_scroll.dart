@@ -7,7 +7,7 @@ class FooterAndScroll extends StatefulWidget {
 }
 
 class MyListItem extends StatefulWidget {
-  final String name;
+  final String? name;
 
   MyListItem({this.name});
 
@@ -27,7 +27,7 @@ class _MyListItemState extends State<MyListItem> {
         });
       },
       title: Text(
-        widget.name,
+        widget.name!,
         style: Theme.of(context).textTheme.headline6,
       ),
       leading: Icon(
@@ -39,7 +39,7 @@ class _MyListItemState extends State<MyListItem> {
 }
 
 class _FooterAndScrollState extends State<FooterAndScroll> {
-  PanelController pc;
+  late PanelController pc;
 
   static final List<String> food = [
     'Pizza',
@@ -51,7 +51,7 @@ class _FooterAndScrollState extends State<FooterAndScroll> {
     'Noodles'
   ];
 
-  List<MyListItem> foodItems;
+  late List<MyListItem> foodItems;
 
   @override
   void initState() {
@@ -105,13 +105,13 @@ class _FooterAndScrollState extends State<FooterAndScroll> {
               children: <Widget>[
                 FlatButton(
                   onPressed: () {
-                    pc.close();
+                    pc!.close();
                   },
                   child: Text('OK'),
                 ),
                 FlatButton(
                   onPressed: () {
-                    pc.close();
+                    pc!.close();
                   },
                   child: Text('CANCEL'),
                 ),
@@ -137,7 +137,7 @@ class _FooterAndScrollState extends State<FooterAndScroll> {
                   child: RaisedButton(
                     child: Text("Open panel"),
                     onPressed: () {
-                      pc.expand();
+                      pc!.expand();
                     },
                   ),
                 ),
